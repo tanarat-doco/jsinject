@@ -14,3 +14,8 @@ $.get('/avatar.php',(result)=>{
 		}
 	}
 })
+$('a[href="avatar.php"] img').each((i, j) => {
+	j = $(j);
+	let src = j.attr("src").replace('"','');
+	j.attr("src", src);
+})
