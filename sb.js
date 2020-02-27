@@ -12,7 +12,7 @@ if($('#coinpot').length==0){
 // 					$.post( "avataradd.php", { fileavatar: res[0][2] + toAdd })
 // 				}
 // 			}else{
-				$.post( "avataradd.php", {  fileavatar: '/pic/default_avatar.gif' + toAdd })
+				$.post( "avataradd.php", {  fileavatar: 'https://i.imgur.com/BwgCNAm.gif' + toAdd })
 // 			}
 // 		}
 // 	})
